@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class PalindromeCheckerApp {
 
@@ -7,20 +8,22 @@ public class PalindromeCheckerApp {
         // Hardcoded input string
         String input = "madam";
 
-        // Create a stack of characters
-        Stack<Character> stack = new Stack<>();
+        // Create Deque (Double Ended Queue)
+        Deque<Character> deque = new ArrayDeque<>();
 
-        // Push characters into stack
+        // Insert characters into deque
         for (int i = 0; i < input.length(); i++) {
-            stack.push(input.charAt(i));
+            deque.addLast(input.charAt(i));
         }
 
         boolean isPalindrome = true;
 
-        // Pop characters and compare with original string
-        for (int i = 0; i < input.length(); i++) {
-            char poppedChar = stack.pop();
-            if (input.charAt(i) != poppedChar) {
+        // Compare front and rear elements
+        while (deque.size() > 1) {
+            char front = deque.removeFirst(); // remove from front
+            char rear = deque.removeLast();   // remove from rear
+
+            if (front != rear) {
                 isPalindrome = false;
                 break;
             }
