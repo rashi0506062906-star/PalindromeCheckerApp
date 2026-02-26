@@ -1,24 +1,23 @@
-public class PalindromeProgram {
+public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // Hardcoded string
-        String str = "madam";
+        // Original string (hardcoded)
+        String original = "madam";
 
         // Variable to store reversed string
         String reversed = "";
 
-        // Reverse the string
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reversed = reversed + str.charAt(i);
+        // Reverse string using for loop
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
         }
 
-        // Check palindrome using if-else
-        if (str.equals(reversed)) {
-            System.out.println("The string \"" + str + "\" is a palindrome.");
+        // Compare original and reversed strings
+        if (original.equals(reversed)) {
+            System.out.println("The string \"" + original + "\" is a palindrome.");
         } else {
-            System.out.println("The string \"" + str + "\" is not a palindrome.");
+            System.out.println("The string \"" + original + "\" is not a palindrome.");
         }
-
     }
 }
