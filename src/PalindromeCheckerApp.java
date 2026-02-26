@@ -2,7 +2,7 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // Hardcoded input string
+        // Original string (hardcoded)
         String original = "madam";
 
         // Variable to store reversed string
@@ -15,10 +15,9 @@ public class PalindromeCheckerApp {
 
         // Compare original and reversed strings
         if (original.equals(reversed)) {
-            System.out.println("Palindrome");
+            System.out.println("The string \"" + original + "\" is a palindrome.");
         } else {
-            System.out.println("Not a Palindrome");
+            System.out.println("The string \"" + original + "\" is not a palindrome.");
         }
-
     }
 }
