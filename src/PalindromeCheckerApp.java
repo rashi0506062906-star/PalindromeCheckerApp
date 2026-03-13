@@ -1,39 +1,33 @@
-import java.util.Deque;
-import java.util.ArrayDeque;
+import java.util.Scanner;
 
 public class PalindromeCheckerApp {
 
+    static boolean isPalindrome(String str, int start, int end) {
+
+        // Base condition
+        if (start >= end)
+            return true;
+
+        // Compare characters
+        if (str.charAt(start) != str.charAt(end))
+            return false;
+
+        // Recursive call
+        return isPalindrome(str, start + 1, end - 1);
+    }
+
     public static void main(String[] args) {
 
-        // Hardcoded input string
-        String input = "madam";
+        Scanner sc = new Scanner(System.in);
 
-        // Create Deque (Double Ended Queue)
-        Deque<Character> deque = new ArrayDeque<>();
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
 
-        // Insert characters into deque
-        for (int i = 0; i < input.length(); i++) {
-            deque.addLast(input.charAt(i));
-        }
+        if (isPalindrome(str, 0, str.length() - 1))
+            System.out.println("The string is a palindrome.");
+        else
+            System.out.println("The string is not a palindrome.");
 
-        boolean isPalindrome = true;
-
-        // Compare front and rear elements
-        while (deque.size() > 1) {
-            char front = deque.removeFirst(); // remove from front
-            char rear = deque.removeLast();   // remove from rear
-
-            if (front != rear) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        // Print result
-        if (isPalindrome) {
-            System.out.println("Palindrome");
-        } else {
-            System.out.println("Not a Palindrome");
-        }
+        sc.close();
     }
 }
